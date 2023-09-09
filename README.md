@@ -2,7 +2,7 @@
 
 Add a buffer listing and cleaning manager, with fuzzy find function.
 
-https://github.com/gw31415/bufmanager.nvim/assets/24710985/1fc4b86e-08df-4401-bbd5-c6ea9518b39e
+https://github.com/gw31415/bufmanager.nvim/assets/24710985/16e76e74-184d-4c0a-a9aa-4427d74124a8
 
 ## Requirements
 
