@@ -2,7 +2,7 @@ fu! s:get_order(bufnr)
 	if has_key(g:bufmanager_last_access, a:bufnr)
 		return g:bufmanager_last_access[a:bufnr]
 	else
-		0
+		return 0
 	en
 endfu
 
