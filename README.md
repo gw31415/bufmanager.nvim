@@ -2,6 +2,8 @@
 
 Add a buffer listing and cleaning manager, with fuzzy find function.
 
+https://github.com/gw31415/bufmanager.nvim/assets/24710985/1fc4b86e-08df-4401-bbd5-c6ea9518b39e
+
 ## Requirements
 
 - [fzyselect.vim](https://github.com/gw31415/fzyselect.vim)
