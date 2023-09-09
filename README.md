@@ -2,6 +2,11 @@
 
 Add a buffer listing and cleaning manager, with fuzzy find function.
 
+## Requirements
+
+- [fzyselect.vim](https://github.com/gw31415/fzyselect.vim)
+- Neovim
+
 ## Installation
 
 ### lazy.nvim
