@@ -31,6 +31,17 @@ fu! bufmanager#bdelete_opfunc(type = '') abort
 	endfor
 endfu
 
+fu! s:format(bufnr)
+	let path = nvim_buf_get_name(a:bufnr)
+	let current_dir = fnamemodify('.', ':p')
+    let absolute_path = fnamemodify(path, ':p')
+	if stridx(absolute_path, current_dir) == 0
+		return fnamemodify(path, ':.')
+    else
+		return absolute_path
+    endif
+endfu
+
 fu! bufmanager#open() abort
 	let current_win = nvim_get_current_win()
 	let s:current_buf = nvim_get_current_buf()
@@ -38,7 +49,7 @@ fu! bufmanager#open() abort
 	au FileType fzyselect ++once nn <buffer><expr> <Plug>(bufmanager-bdelete) bufmanager#bdelete_opfunc()
 	au FileType fzyselect ++once xn <buffer><expr> <Plug>(bufmanager-bdelete) bufmanager#bdelete_opfunc()
 	cal fzyselect#start(s:bufs, #{
-				\ format_item: {n -> nvim_buf_get_name(n)},
+				\ format_item: {n -> s:format(n)},
 				\ prompt: 'bufmanager'
 				\ }, { buf -> buf ? nvim_win_set_buf(current_win, buf) : v:null })
 endfu
