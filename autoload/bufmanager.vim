@@ -23,12 +23,10 @@ fu! bufmanager#bdelete_opfunc(type = '') abort
 	let bufs = range(line("'["), line("']"))->map("fzyselect#getitem(v:val)[0]")
 	for buf in bufs
 		cal nvim_buf_delete(buf, {})
-		let s:bufs = s:list_bufs()
-		sil! cal fzyselect#refresh(s:bufs)
-		if len(s:bufs) == 0
-			close
-		endif
 	endfor
+	let s:bufs = s:list_bufs()
+	sil! cal fzyselect#refresh(s:bufs)
+	if len(s:bufs) == 0 | clo | endi
 endfu
 
 fu! s:format(bufnr)
@@ -36,10 +34,10 @@ fu! s:format(bufnr)
 	let current_dir = fnamemodify('.', ':p')
     let absolute_path = fnamemodify(path, ':p')
 	if stridx(absolute_path, current_dir) == 0
-		return fnamemodify(path, ':.')
-    else
-		return absolute_path
-    endif
+		retu fnamemodify(path, ':.')
+    el
+		retu absolute_path
+    endi
 endfu
 
 fu! bufmanager#open() abort
