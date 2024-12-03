@@ -32,12 +32,12 @@ endfu
 fu! s:format(bufnr)
 	let path = nvim_buf_get_name(a:bufnr)
 	let current_dir = fnamemodify('.', ':p')
-    let absolute_path = fnamemodify(path, ':p')
+	let absolute_path = fnamemodify(path, ':p')
 	if stridx(absolute_path, current_dir) == 0
 		retu fnamemodify(path, ':.')
-    el
+	el
 		retu absolute_path
-    endi
+	endi
 endfu
 
 fu! bufmanager#open() abort
