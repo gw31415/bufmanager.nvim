@@ -25,8 +25,12 @@ fu! bufmanager#bdelete_opfunc(type = '') abort
 		cal nvim_buf_delete(buf, {})
 	endfor
 	let s:bufs = s:list_bufs()
+	let wsv = winsaveview()
 	sil! cal fzyselect#swap(s:bufs)
-	if len(s:bufs) == 0 | clo | endi
+	if len(s:bufs) == 0 | clo 
+	el
+		cal winrestview(wsv)
+	en
 endfu
 
 fu! s:format(bufnr)
