@@ -25,7 +25,7 @@ fu! bufmanager#bdelete_opfunc(type = '') abort
 		cal nvim_buf_delete(buf, {})
 	endfor
 	let s:bufs = s:list_bufs()
-	sil! cal fzyselect#refresh(s:bufs)
+	sil! cal fzyselect#swap(s:bufs)
 	if len(s:bufs) == 0 | clo | endi
 endfu
 
